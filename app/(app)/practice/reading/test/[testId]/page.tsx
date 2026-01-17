@@ -112,7 +112,7 @@ function TestContent({ test }: { test: ReadingTest }) {
     }
 
     return (
-        <div className="flex flex-col p-6 pb-32 bg-slate-50 dark:bg-[#020617] min-h-full transition-all duration-300">
+        <div className="flex flex-col p-6 pb-24 bg-slate-50 dark:bg-[#020617] min-h-full transition-all duration-300">
             {/* Page Header */}
             <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-4">
@@ -150,7 +150,7 @@ function TestContent({ test }: { test: ReadingTest }) {
             {/* Main Content */}
             <div className="grid lg:grid-cols-2 gap-6">
                 {/* Passages */}
-                <div className="lg:sticky lg:top-4 lg:h-[calc(100vh-8rem)] lg:overflow-y-auto pr-2">
+                <div className="lg:sticky lg:top-4 lg:h-[calc(100vh-6rem)] lg:overflow-y-auto pr-2 custom-scrollbar">
                     <Card className="bg-white dark:bg-slate-900/60 border-slate-200 dark:border-white/10 backdrop-blur-3xl rounded-[1.5rem] overflow-hidden shadow-xl">
                         <CardHeader className="p-5 border-b border-slate-200 dark:border-white/5">
                             <Badge className="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-none rounded-full px-3 py-0.5 text-[10px] font-black uppercase tracking-widest mb-2 w-fit">

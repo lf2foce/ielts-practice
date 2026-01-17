@@ -1,0 +1,602 @@
+{
+    "tests": [
+        {
+            "id": "1",
+            "title": "Full Mock Test: Volume 1",
+            "type": "full_mock",
+            "durationMinutes": 60,
+            "description": "Official-style mock test with varied academic topics and standard 40-question set.",
+            "difficulty": "Hard",
+            "passages": [
+                {
+                    "id": "passage-1",
+                    "title": "The Evolution of Artificial Intelligence",
+                    "paragraphs": [
+                        {
+                            "id": "A",
+                            "content": "Artificial intelligence (AI) has undergone a remarkable transformation since its inception in the mid-20th century. What began as a theoretical concept discussed by mathematicians and philosophers has evolved into one of the most influential technologies of our time, reshaping industries, economies, and the very fabric of daily life."
+                        },
+                        {
+                            "id": "B",
+                            "content": "The term 'artificial intelligence' was first coined in 1956 at the Dartmouth Conference, where researchers gathered to explore the possibility of creating machines that could simulate human intelligence. Early AI research focused on symbolic reasoning and problem-solving, with programs designed to play chess or solve mathematical theorems."
+                        },
+                        {
+                            "id": "C",
+                            "content": "The field experienced several 'AI winters' – periods of reduced funding and interest due to unmet expectations. During the 1970s and again in the late 1980s, enthusiasm waned as researchers struggled to deliver on the grand promises made to funding agencies."
+                        },
+                        {
+                            "id": "D",
+                            "content": "The 21st century brought a revolutionary change with the advent of deep learning and neural networks. Unlike earlier approaches that required explicit programming of rules, these systems could learn patterns directly from data."
+                        },
+                        {
+                            "id": "E",
+                            "content": "Today, AI applications are ubiquitous, from virtual assistants on smartphones to sophisticated medical diagnosis systems. Machine learning algorithms recommend products, detect fraud, translate languages, and even create art."
+                        }
+                    ]
+                },
+                {
+                    "id": "passage-2",
+                    "title": "The Future of Robotics",
+                    "paragraphs": [
+                        {
+                            "id": "A",
+                            "content": "Robotics has evolved from simple mechanical automata to sophisticated machines capable of complex tasks. Modern robots integrate sensors, actuators, and artificial intelligence to navigate environments and interact with humans."
+                        },
+                        {
+                            "id": "B",
+                            "content": "Industrial robots have transformed manufacturing, performing tasks with precision and consistency that surpass human capabilities. In automotive plants, robotic arms weld, paint, and assemble vehicles with remarkable efficiency."
+                        },
+                        {
+                            "id": "C",
+                            "content": "Service robots are increasingly common in healthcare, hospitality, and domestic settings. Surgical robots assist doctors with minimally invasive procedures, while cleaning robots have become household staples."
+                        },
+                        {
+                            "id": "D",
+                            "content": "The future promises even more advanced humanoid robots capable of natural language interaction and emotional intelligence. These developments raise important questions about employment, ethics, and the nature of human-machine relationships."
+                        }
+                    ]
+                },
+                {
+                    "id": "passage-3",
+                    "title": "Ethics in the Digital Age",
+                    "paragraphs": [
+                        {
+                            "id": "A",
+                            "content": "The digital revolution has brought unprecedented ethical challenges. Privacy concerns have escalated as companies collect vast amounts of personal data, often without explicit consent or clear disclosure."
+                        },
+                        {
+                            "id": "B",
+                            "content": "Algorithmic bias represents another significant ethical issue. Machine learning systems trained on historical data can perpetuate and even amplify existing societal prejudices, affecting decisions in hiring, lending, and criminal justice."
+                        },
+                        {
+                            "id": "C",
+                            "content": "The rise of deepfakes and synthetic media poses threats to truth and trust in information. Advanced AI can create convincing fake videos and audio, challenging our ability to distinguish reality from fabrication."
+                        },
+                        {
+                            "id": "D",
+                            "content": "Digital addiction and mental health impacts have become growing concerns, particularly among young people. The design of social media platforms to maximize engagement has been linked to increased anxiety and depression."
+                        }
+                    ]
+                }
+            ],
+            "questions": [
+                {
+                    "id": 1,
+                    "passageId": "passage-1",
+                    "type": "true-false-not-given",
+                    "text": "The Dartmouth Conference took place in the 1960s.",
+                    "correctAnswer": "FALSE",
+                    "explanation": "The passage states the term was coined in 1956 at the Dartmouth Conference."
+                },
+                {
+                    "id": 2,
+                    "passageId": "passage-1",
+                    "type": "true-false-not-given",
+                    "text": "Early AI systems were limited by available computing power.",
+                    "correctAnswer": "TRUE",
+                    "explanation": "Paragraph B states they 'were limited by the computational power available'."
+                },
+                {
+                    "id": 3,
+                    "passageId": "passage-1",
+                    "type": "true-false-not-given",
+                    "text": "The AI winters occurred only once in the history of AI development.",
+                    "correctAnswer": "FALSE",
+                    "explanation": "Paragraph C mentions 'several AI winters' and specifically mentions the 1970s and late 1980s."
+                },
+                {
+                    "id": 4,
+                    "passageId": "passage-1",
+                    "type": "true-false-not-given",
+                    "text": "Deep learning requires explicit programming of rules.",
+                    "correctAnswer": "FALSE",
+                    "explanation": "Paragraph D states 'Unlike earlier approaches that required explicit programming of rules, these systems could learn patterns directly from data'."
+                },
+                {
+                    "id": 5,
+                    "passageId": "passage-1",
+                    "type": "true-false-not-given",
+                    "text": "AI has achieved superhuman performance in all tasks.",
+                    "correctAnswer": "FALSE",
+                    "explanation": "The passage implies AI achieved superhuman performance 'in specific tasks', not all tasks."
+                },
+                {
+                    "id": 6,
+                    "passageId": "passage-1",
+                    "type": "multiple-choice",
+                    "text": "What was the main focus of early AI research?",
+                    "options": [
+                        "A) Deep learning and neural networks",
+                        "B) Symbolic reasoning and problem-solving",
+                        "C) Medical diagnosis systems",
+                        "D) Virtual assistants"
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Paragraph B states 'Early AI research focused on symbolic reasoning and problem-solving'."
+                },
+                {
+                    "id": 7,
+                    "passageId": "passage-1",
+                    "type": "multiple-choice",
+                    "text": "What enabled the breakthroughs in AI in the 21st century?",
+                    "options": [
+                        "A) New programming languages",
+                        "B) Government regulations",
+                        "C) Massive datasets and increased computing power",
+                        "D) Reduced research funding"
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "Paragraph D mentions 'availability of massive datasets, coupled with exponential increases in computing power'."
+                },
+                {
+                    "id": 8,
+                    "passageId": "passage-1",
+                    "type": "multiple-choice",
+                    "text": "According to the passage, what is one ethical concern about AI?",
+                    "options": [
+                        "A) The cost of development",
+                        "B) Employment displacement",
+                        "C) Lack of creativity",
+                        "D) Slow processing speed"
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Paragraph E mentions 'employment displacement' as one of the ethical questions raised."
+                },
+                {
+                    "id": 9,
+                    "passageId": "passage-1",
+                    "type": "matching-paragraph",
+                    "text": "Which paragraph discusses the periods when interest in AI decreased?",
+                    "options": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E"
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "Paragraph C discusses the 'AI winters' – periods of reduced funding and interest."
+                },
+                {
+                    "id": 10,
+                    "passageId": "passage-1",
+                    "type": "matching-paragraph",
+                    "text": "Which paragraph mentions current applications of AI?",
+                    "options": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E"
+                    ],
+                    "correctAnswer": "E",
+                    "explanation": "Paragraph E discusses today's AI applications like virtual assistants and medical diagnosis."
+                },
+                {
+                    "id": 11,
+                    "passageId": "passage-2",
+                    "type": "true-false-not-given",
+                    "text": "Modern robots can only perform pre-programmed tasks.",
+                    "correctAnswer": "FALSE",
+                    "explanation": "The passage states robots integrate AI to navigate and interact."
+                },
+                {
+                    "id": 12,
+                    "passageId": "passage-2",
+                    "type": "true-false-not-given",
+                    "text": "Industrial robots are primarily used in automotive manufacturing.",
+                    "correctAnswer": "NOT GIVEN",
+                    "explanation": "While automotive is mentioned as an example, it's not stated as primary."
+                },
+                {
+                    "id": 13,
+                    "passageId": "passage-2",
+                    "type": "true-false-not-given",
+                    "text": "Service robots are only found in industrial settings.",
+                    "correctAnswer": "FALSE",
+                    "explanation": "The passage mentions service robots in healthcare, hospitality, and domestic settings."
+                },
+                {
+                    "id": 14,
+                    "passageId": "passage-2",
+                    "type": "multiple-choice",
+                    "text": "What makes modern robots different from early automata?",
+                    "options": [
+                        "A) Their size",
+                        "B) Integration of sensors, actuators and AI",
+                        "C) Their color",
+                        "D) Their cost"
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "The passage mentions sensors, actuators, and AI as key differentiators."
+                },
+                {
+                    "id": 15,
+                    "passageId": "passage-2",
+                    "type": "multiple-choice",
+                    "text": "What concern does the passage raise about future robots?",
+                    "options": [
+                        "A) Their cost",
+                        "B) Their size",
+                        "C) Questions about employment and ethics",
+                        "D) Their speed"
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "Paragraph D mentions questions about employment, ethics, and human-machine relationships."
+                },
+                {
+                    "id": 16,
+                    "passageId": "passage-3",
+                    "type": "true-false-not-given",
+                    "text": "Companies always get explicit consent before collecting personal data.",
+                    "correctAnswer": "FALSE",
+                    "explanation": "The passage states data is collected 'often without explicit consent'."
+                },
+                {
+                    "id": 17,
+                    "passageId": "passage-3",
+                    "type": "true-false-not-given",
+                    "text": "Algorithmic bias only affects hiring decisions.",
+                    "correctAnswer": "FALSE",
+                    "explanation": "The passage mentions bias affecting hiring, lending, and criminal justice."
+                },
+                {
+                    "id": 18,
+                    "passageId": "passage-3",
+                    "type": "true-false-not-given",
+                    "text": "Deepfakes can only create fake images, not videos.",
+                    "correctAnswer": "FALSE",
+                    "explanation": "The passage mentions 'convincing fake videos and audio'."
+                },
+                {
+                    "id": 19,
+                    "passageId": "passage-3",
+                    "type": "multiple-choice",
+                    "text": "What is a concern about machine learning systems?",
+                    "options": [
+                        "A) They are too slow",
+                        "B) They can perpetuate societal biases",
+                        "C) They are too expensive",
+                        "D) They require too much energy"
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Paragraph B discusses algorithmic bias and perpetuating prejudices."
+                },
+                {
+                    "id": 20,
+                    "passageId": "passage-3",
+                    "type": "multiple-choice",
+                    "text": "According to the passage, what has been linked to social media platform design?",
+                    "options": [
+                        "A) Improved productivity",
+                        "B) Better relationships",
+                        "C) Increased anxiety and depression",
+                        "D) Higher incomes"
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "Paragraph D states platform design 'has been linked to increased anxiety and depression'."
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "title": "Academic Passage: Science",
+            "type": "practice",
+            "durationMinutes": 20,
+            "description": "Explore scientific discoveries and research methodologies through academic texts.",
+            "difficulty": "Medium",
+            "passages": [
+                {
+                    "id": "passage-1",
+                    "title": "Climate Change and Ocean Ecosystems",
+                    "paragraphs": [
+                        {
+                            "id": "A",
+                            "content": "Ocean ecosystems are experiencing unprecedented changes due to rising global temperatures. Coral reefs, which support approximately 25% of all marine species, are particularly vulnerable to thermal stress. Scientists estimate that over 50% of the world's coral reefs have already been lost."
+                        },
+                        {
+                            "id": "B",
+                            "content": "Scientists have observed widespread coral bleaching events, where corals expel their symbiotic algae in response to heat stress. Without these algae, corals lose their primary food source and their vibrant colors. Recovery from bleaching is possible, but requires several years of cooler temperatures."
+                        },
+                        {
+                            "id": "C",
+                            "content": "Marine biodiversity is also threatened by ocean acidification, a consequence of increased carbon dioxide absorption. As pH levels drop, shell-forming organisms struggle to build and maintain their protective structures. This affects everything from tiny plankton to large shellfish."
+                        },
+                        {
+                            "id": "D",
+                            "content": "Rising sea levels, another consequence of climate change, threaten coastal habitats including mangroves and salt marshes. These ecosystems serve as nurseries for many fish species and provide natural protection against storms and flooding."
+                        },
+                        {
+                            "id": "E",
+                            "content": "Scientists are working on various conservation strategies, including coral restoration projects, marine protected areas, and efforts to reduce carbon emissions. However, many experts argue that without significant global action to address climate change, these efforts may prove insufficient."
+                        }
+                    ]
+                }
+            ],
+            "questions": [
+                {
+                    "id": 1,
+                    "passageId": "passage-1",
+                    "type": "true-false-not-given",
+                    "text": "Coral reefs support about a quarter of marine species.",
+                    "correctAnswer": "TRUE",
+                    "explanation": "The passage states coral reefs 'support approximately 25% of all marine species'."
+                },
+                {
+                    "id": 2,
+                    "passageId": "passage-1",
+                    "type": "true-false-not-given",
+                    "text": "Coral bleaching is caused by ocean pollution.",
+                    "correctAnswer": "FALSE",
+                    "explanation": "The passage states coral bleaching is caused by heat stress, not pollution."
+                },
+                {
+                    "id": 3,
+                    "passageId": "passage-1",
+                    "type": "true-false-not-given",
+                    "text": "Corals cannot recover from bleaching events.",
+                    "correctAnswer": "FALSE",
+                    "explanation": "Paragraph B states 'Recovery from bleaching is possible, but requires several years of cooler temperatures'."
+                },
+                {
+                    "id": 4,
+                    "passageId": "passage-1",
+                    "type": "true-false-not-given",
+                    "text": "Ocean acidification affects only small marine organisms.",
+                    "correctAnswer": "FALSE",
+                    "explanation": "Paragraph C states it 'affects everything from tiny plankton to large shellfish'."
+                },
+                {
+                    "id": 5,
+                    "passageId": "passage-1",
+                    "type": "true-false-not-given",
+                    "text": "Mangroves provide natural storm protection.",
+                    "correctAnswer": "TRUE",
+                    "explanation": "Paragraph D mentions mangroves 'provide natural protection against storms and flooding'."
+                },
+                {
+                    "id": 6,
+                    "passageId": "passage-1",
+                    "type": "multiple-choice",
+                    "text": "What happens to corals during bleaching?",
+                    "options": [
+                        "A) They grow faster",
+                        "B) They expel their symbiotic algae",
+                        "C) They change location",
+                        "D) They reproduce"
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Paragraph B explains corals expel their symbiotic algae during bleaching."
+                },
+                {
+                    "id": 7,
+                    "passageId": "passage-1",
+                    "type": "multiple-choice",
+                    "text": "What is ocean acidification caused by?",
+                    "options": [
+                        "A) Oil spills",
+                        "B) Plastic pollution",
+                        "C) Increased carbon dioxide absorption",
+                        "D) Fishing activities"
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "Paragraph C states it is 'a consequence of increased carbon dioxide absorption'."
+                },
+                {
+                    "id": 8,
+                    "passageId": "passage-1",
+                    "type": "multiple-choice",
+                    "text": "According to the passage, what percentage of coral reefs have been lost?",
+                    "options": [
+                        "A) About 25%",
+                        "B) About 50%",
+                        "C) About 75%",
+                        "D) About 100%"
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Paragraph A states 'over 50% of the world's coral reefs have already been lost'."
+                },
+                {
+                    "id": 9,
+                    "passageId": "passage-1",
+                    "type": "matching-paragraph",
+                    "text": "Which paragraph discusses conservation efforts?",
+                    "options": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E"
+                    ],
+                    "correctAnswer": "E",
+                    "explanation": "Paragraph E discusses conservation strategies including coral restoration and marine protected areas."
+                },
+                {
+                    "id": 10,
+                    "passageId": "passage-1",
+                    "type": "matching-paragraph",
+                    "text": "Which paragraph explains how shell-forming organisms are affected?",
+                    "options": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E"
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "Paragraph C discusses how pH changes affect shell-forming organisms."
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "title": "Academic Passage: History",
+            "type": "practice",
+            "durationMinutes": 20,
+            "description": "Analyze historical events and their impact on modern society.",
+            "difficulty": "Hard",
+            "passages": [
+                {
+                    "id": "passage-1",
+                    "title": "The Industrial Revolution",
+                    "paragraphs": [
+                        {
+                            "id": "A",
+                            "content": "The Industrial Revolution, which began in Britain in the late 18th century, fundamentally transformed human society. It marked a shift from agrarian economies to industrial manufacturing, changing how people lived, worked, and interacted with one another."
+                        },
+                        {
+                            "id": "B",
+                            "content": "Key innovations included the steam engine, spinning jenny, and power loom. These machines enabled mass production and reduced dependence on manual labor. The steam engine, invented by James Watt in 1769, became the driving force behind factories, ships, and later, railways."
+                        },
+                        {
+                            "id": "C",
+                            "content": "The social impact was profound. Urbanization accelerated as workers migrated to factory towns. Working conditions were often harsh, with long hours, low wages, and dangerous environments. Child labor was common, with children as young as five working in mines and factories."
+                        },
+                        {
+                            "id": "D",
+                            "content": "These conditions eventually led to labor movements and social reforms. Trade unions emerged to advocate for workers' rights, and legislation gradually improved working conditions. The Factory Acts in Britain, starting in 1833, began to regulate child labor and working hours."
+                        },
+                        {
+                            "id": "E",
+                            "content": "The Industrial Revolution's legacy extends to the present day. It established the foundations of modern capitalism, created new social classes, and accelerated technological innovation. However, it also initiated environmental degradation that continues to challenge us today."
+                        }
+                    ]
+                }
+            ],
+            "questions": [
+                {
+                    "id": 1,
+                    "passageId": "passage-1",
+                    "type": "true-false-not-given",
+                    "text": "The Industrial Revolution started in France.",
+                    "correctAnswer": "FALSE",
+                    "explanation": "The passage states it began in Britain."
+                },
+                {
+                    "id": 2,
+                    "passageId": "passage-1",
+                    "type": "true-false-not-given",
+                    "text": "James Watt invented the steam engine in 1769.",
+                    "correctAnswer": "TRUE",
+                    "explanation": "Paragraph B mentions 'the steam engine, invented by James Watt in 1769'."
+                },
+                {
+                    "id": 3,
+                    "passageId": "passage-1",
+                    "type": "true-false-not-given",
+                    "text": "Child labor was prohibited during the Industrial Revolution.",
+                    "correctAnswer": "FALSE",
+                    "explanation": "Paragraph C states child labor was common, with children as young as five working."
+                },
+                {
+                    "id": 4,
+                    "passageId": "passage-1",
+                    "type": "true-false-not-given",
+                    "text": "The spinning jenny was invented after 1800.",
+                    "correctAnswer": "NOT GIVEN",
+                    "explanation": "The passage mentions the spinning jenny but doesn't specify when it was invented."
+                },
+                {
+                    "id": 5,
+                    "passageId": "passage-1",
+                    "type": "true-false-not-given",
+                    "text": "The first Factory Acts were passed in 1833.",
+                    "correctAnswer": "TRUE",
+                    "explanation": "Paragraph D states 'The Factory Acts in Britain, starting in 1833'."
+                },
+                {
+                    "id": 6,
+                    "passageId": "passage-1",
+                    "type": "multiple-choice",
+                    "text": "What was a consequence of the Industrial Revolution?",
+                    "options": [
+                        "A) Rural population growth",
+                        "B) Decreased manufacturing",
+                        "C) Urbanization",
+                        "D) Reduced innovation"
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "Paragraph C mentions 'Urbanization accelerated as workers migrated to factory towns'."
+                },
+                {
+                    "id": 7,
+                    "passageId": "passage-1",
+                    "type": "multiple-choice",
+                    "text": "What did trade unions advocate for?",
+                    "options": [
+                        "A) Longer working hours",
+                        "B) Workers' rights",
+                        "C) More child labor",
+                        "D) Lower wages"
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Paragraph D states 'Trade unions emerged to advocate for workers' rights'."
+                },
+                {
+                    "id": 8,
+                    "passageId": "passage-1",
+                    "type": "multiple-choice",
+                    "text": "According to the passage, what modern challenge began during the Industrial Revolution?",
+                    "options": [
+                        "A) Digital addiction",
+                        "B) Environmental degradation",
+                        "C) Cybersecurity",
+                        "D) Artificial intelligence"
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Paragraph E mentions 'environmental degradation that continues to challenge us today'."
+                },
+                {
+                    "id": 9,
+                    "passageId": "passage-1",
+                    "type": "matching-paragraph",
+                    "text": "Which paragraph discusses working conditions?",
+                    "options": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E"
+                    ],
+                    "correctAnswer": "C",
+                    "explanation": "Paragraph C describes harsh working conditions including long hours and child labor."
+                },
+                {
+                    "id": 10,
+                    "passageId": "passage-1",
+                    "type": "matching-paragraph",
+                    "text": "Which paragraph mentions key technological innovations?",
+                    "options": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E"
+                    ],
+                    "correctAnswer": "B",
+                    "explanation": "Paragraph B discusses the steam engine, spinning jenny, and power loom."
+                }
+            ]
+        }
+    ]
+}

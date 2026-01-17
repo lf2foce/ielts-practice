@@ -29,15 +29,15 @@ export function AppLayoutWrapper({ session, children }: AppLayoutWrapperProps) {
     if (!mounted) return null;
 
     return (
-        <div className="flex min-h-screen">
+        <div className="flex min-h-screen bg-[#f8fafc] dark:bg-[#020617]">
             <AppSidebar
                 session={session}
                 isCollapsed={isSidebarCollapsed}
                 onToggle={handleToggle}
             />
 
-            {/* Floating Theme Toggle */}
-            <div className="fixed top-6 right-6 z-[60]">
+            {/* Floating Theme Toggle - Top Right */}
+            <div className="fixed top-6 right-8 z-[60]">
                 <ModeToggle />
             </div>
 
@@ -45,7 +45,7 @@ export function AppLayoutWrapper({ session, children }: AppLayoutWrapperProps) {
             <div
                 className={cn(
                     "flex-1 transition-all duration-300 ease-in-out",
-                    isSidebarCollapsed ? "ml-20" : "ml-20 lg:ml-64"
+                    isSidebarCollapsed ? "ml-16" : "ml-20 lg:ml-64"
                 )}
             >
                 <main className="min-h-screen">

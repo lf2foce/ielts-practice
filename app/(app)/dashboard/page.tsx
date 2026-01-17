@@ -30,9 +30,9 @@ export default async function DashboardPage() {
     const session = await auth()
 
     return (
-        <div className="flex flex-col p-8 bg-slate-50 dark:bg-[#020617] min-h-full">
+        <div className="flex flex-col p-6 bg-slate-50 dark:bg-[#020617] min-h-full">
             {/* Welcome Header */}
-            <section className="mb-8">
+            <section className="mb-6">
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
                     <div>
                         <p className="text-sm font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-widest mb-2">Welcome back</p>
@@ -54,11 +54,11 @@ export default async function DashboardPage() {
             </section>
 
             {/* Quick Stats */}
-            <section className="mb-8">
+            <section className="mb-6">
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                     {quickStats.map((stat, i) => (
                         <Card key={i} className="bg-white/70 dark:bg-slate-900/40 border-slate-200 dark:border-white/5 backdrop-blur-xl rounded-2xl">
-                            <CardContent className="p-6 flex items-center gap-4">
+                            <CardContent className="p-4 flex items-center gap-4">
                                 <div className={`h-12 w-12 rounded-xl ${stat.bgColor} flex items-center justify-center`}>
                                     <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                                 </div>
@@ -73,8 +73,8 @@ export default async function DashboardPage() {
             </section>
 
             {/* Skills Practice Panel */}
-            <section className="mb-8">
-                <div className="flex items-center justify-between mb-8">
+            <section className="mb-6">
+                <div className="flex items-center justify-between mb-6">
                     <h2 className="text-2xl font-black text-[#020617] dark:text-white">Practice Skills</h2>
                     <Button variant="ghost" className="font-bold text-indigo-600 dark:text-indigo-400">
                         View All <ArrowRight className="w-4 h-4 ml-2" />
@@ -85,16 +85,16 @@ export default async function DashboardPage() {
                     {skillCards.map((skill, i) => (
                         <Link key={i} href={skill.href}>
                             <Card className="group h-full bg-white/70 dark:bg-slate-900/40 border-slate-200 dark:border-white/5 backdrop-blur-xl rounded-[2rem] overflow-hidden hover:bg-white dark:hover:bg-slate-800/60 transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-xl hover:shadow-indigo-500/5 cursor-pointer">
-                                <CardHeader className="p-8">
-                                    <div className={`w-16 h-16 rounded-2xl ${skill.bgColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                                        <skill.icon className={`w-8 h-8 ${skill.iconColor}`} />
+                                <CardHeader className="p-6">
+                                    <div className={`w-14 h-14 rounded-2xl ${skill.bgColor} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500`}>
+                                        <skill.icon className={`w-7 h-7 ${skill.iconColor}`} />
                                     </div>
                                     <CardTitle className="text-2xl font-black text-[#020617] dark:text-white mb-2">{skill.name}</CardTitle>
                                     <CardDescription className="text-slate-500 font-bold">
                                         {skill.description}
                                     </CardDescription>
                                 </CardHeader>
-                                <CardContent className="p-8 pt-0">
+                                <CardContent className="p-6 pt-0">
                                     <div className="flex items-center justify-between mb-4">
                                         <span className="text-xs font-black text-slate-400 uppercase tracking-widest">Progress</span>
                                         <span className="text-sm font-black text-indigo-600 dark:text-indigo-400">{skill.progress}%</span>
@@ -123,7 +123,7 @@ export default async function DashboardPage() {
                     {/* Performance Chart */}
                     <div className="lg:col-span-7">
                         <Card className="bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-white/10 backdrop-blur-3xl rounded-[2rem] overflow-hidden shadow-xl">
-                            <CardHeader className="p-8 border-b border-slate-200 dark:border-white/5">
+                            <CardHeader className="p-6 border-b border-slate-200 dark:border-white/5">
                                 <div className="flex items-center justify-between">
                                     <div>
                                         <CardTitle className="text-xl font-black text-[#020617] dark:text-white">Performance Analysis</CardTitle>
@@ -134,7 +134,7 @@ export default async function DashboardPage() {
                                     </Badge>
                                 </div>
                             </CardHeader>
-                            <CardContent className="p-8">
+                            <CardContent className="p-6">
                                 <div className="space-y-6">
                                     {performanceData.map((item, i) => (
                                         <div key={i} className="space-y-3">
@@ -165,12 +165,12 @@ export default async function DashboardPage() {
                     <div className="lg:col-span-5 space-y-6">
                         {/* Today's Goal */}
                         <Card className="bg-indigo-600 dark:bg-indigo-600/20 border-none rounded-2xl overflow-hidden">
-                            <CardContent className="p-8">
+                            <CardContent className="p-6">
                                 <div className="flex items-center gap-3 mb-4">
                                     <Zap className="w-6 h-6 text-white dark:text-indigo-400" />
                                     <h3 className="text-lg font-black text-white dark:text-white">Today's Goal</h3>
                                 </div>
-                                <p className="text-indigo-100 dark:text-indigo-200 font-medium mb-6">
+                                <p className="text-indigo-100 dark:text-indigo-200 font-medium mb-6 text-sm">
                                     Complete 2 Reading passages and 1 Listening test to stay on track.
                                 </p>
                                 <div className="flex items-center gap-4">
@@ -184,13 +184,13 @@ export default async function DashboardPage() {
 
                         {/* Recent Activity */}
                         <Card className="bg-white/70 dark:bg-slate-900/40 border-slate-200 dark:border-white/5 backdrop-blur-xl rounded-2xl">
-                            <CardHeader className="p-6">
+                            <CardHeader className="p-5">
                                 <CardTitle className="text-lg font-black text-[#020617] dark:text-white flex items-center gap-3">
                                     <Calendar className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                                     Recent Activity
                                 </CardTitle>
                             </CardHeader>
-                            <CardContent className="p-6 pt-0 space-y-4">
+                            <CardContent className="p-5 pt-0 space-y-4">
                                 {recentActivity.map((activity, i) => (
                                     <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/5">
                                         <div className={`h-10 w-10 rounded-xl ${activity.bgColor} flex items-center justify-center`}>
@@ -210,7 +210,7 @@ export default async function DashboardPage() {
 
                         {/* Achievement */}
                         <Card className="bg-amber-500/10 dark:bg-amber-500/10 border-amber-200 dark:border-amber-500/20 rounded-2xl">
-                            <CardContent className="p-6 flex items-center gap-4">
+                            <CardContent className="p-4 flex items-center gap-4">
                                 <div className="h-14 w-14 rounded-xl bg-amber-500 flex items-center justify-center">
                                     <Award className="w-7 h-7 text-white" />
                                 </div>

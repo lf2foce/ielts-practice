@@ -24,40 +24,37 @@ import {
 
 export default async function ReadingPracticePage() {
     return (
-        <div className="flex flex-col p-8 bg-slate-50 dark:bg-[#020617] min-h-full">
+        <div className="flex flex-col p-6 bg-slate-50 dark:bg-[#020617] min-h-full">
             {/* Page Header */}
-            <section className="mb-8">
-                <div className="flex items-center gap-4 mb-8">
+            <section className="mb-6">
+                <div className="flex items-center gap-4 mb-6">
                     <Button variant="ghost" size="icon" className="h-10 w-10 rounded-xl border border-slate-200 dark:border-white/10" asChild>
                         <Link href="/dashboard"><ArrowLeft className="w-5 h-5" /></Link>
                     </Button>
-                    <Badge className="bg-indigo-600 dark:bg-indigo-500/10 text-white dark:text-indigo-400 border-none rounded-full px-5 py-1 text-xs font-black tracking-widest uppercase">
-                        Analytical Node
-                    </Badge>
                 </div>
 
                 <div className="max-w-4xl">
-                    <h1 className="text-5xl lg:text-7xl font-black tracking-tight text-[#020617] dark:text-white mb-6">
+                    <h1 className="text-5xl lg:text-6xl font-black tracking-tight text-[#020617] dark:text-white mb-4">
                         Reading <span className="text-indigo-600 dark:text-indigo-400">Practice</span>
                     </h1>
-                    <p className="text-xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
-                        High-speed analytical reading modules designed for cognitive precision and predictive difficulty scaling.
+                    <p className="text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+                        Improve your IELTS Reading band with our collection of academic passages and interactive exercises.
                     </p>
                 </div>
             </section>
 
             {/* Practice Stats */}
-            <section className="mb-8">
+            <section className="mb-6">
                 <div className="grid md:grid-cols-4 gap-6">
                     {stats.map((stat, i) => (
                         <Card key={i} className="bg-white/70 dark:bg-slate-900/40 border-slate-200 dark:border-white/5 backdrop-blur-xl rounded-2xl">
-                            <CardContent className="p-6 flex items-center gap-4">
-                                <div className="h-12 w-12 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
-                                    <stat.icon className="w-6 h-6" />
+                            <CardContent className="p-4 flex items-center gap-4">
+                                <div className="h-11 w-11 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform">
+                                    <stat.icon className="w-5 h-5" />
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-black text-[#020617] dark:text-white">{stat.value}</p>
-                                    <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">{stat.label}</p>
+                                    <p className="text-xl font-black text-[#020617] dark:text-white">{stat.value}</p>
+                                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{stat.label}</p>
                                 </div>
                             </CardContent>
                         </Card>
@@ -66,35 +63,35 @@ export default async function ReadingPracticePage() {
             </section>
 
             {/* Practice Modules */}
-            <section className="mb-8">
-                <h2 className="text-3xl font-black text-[#020617] dark:text-white mb-8">Practice Modules</h2>
+            <section className="mb-6">
+                <h2 className="text-2xl font-black text-[#020617] dark:text-white mb-6">Practice Modules</h2>
 
-                <div className="grid lg:grid-cols-3 gap-8">
+                <div className="grid lg:grid-cols-3 gap-6">
                     {modules.map((module, i) => (
-                        <Card key={i} className="group bg-white/70 dark:bg-slate-900/40 border-slate-200 dark:border-white/5 backdrop-blur-xl rounded-[2rem] overflow-hidden hover:bg-white dark:hover:bg-slate-800/60 transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-xl hover:shadow-indigo-500/5">
-                            <CardHeader className="p-8 pb-4">
-                                <div className="flex items-center justify-between mb-4">
-                                    <Badge className={`${module.difficulty === 'Easy' ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400' : module.difficulty === 'Medium' ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400' : 'bg-red-500/10 text-red-600 dark:text-red-400'} border-none rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-widest`}>
+                        <Card key={i} className="group bg-white/70 dark:bg-slate-900/40 border-slate-200 dark:border-white/5 backdrop-blur-xl rounded-[1.5rem] overflow-hidden hover:bg-white dark:hover:bg-slate-800/60 transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-xl hover:shadow-indigo-500/5">
+                            <CardHeader className="p-6 pb-4">
+                                <div className="flex items-center justify-between mb-3">
+                                    <Badge className={`${module.difficulty === 'Easy' ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400' : module.difficulty === 'Medium' ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400' : 'bg-red-500/10 text-red-600 dark:text-red-400'} border-none rounded-full px-3 py-0.5 text-[10px] font-black uppercase tracking-widest`}>
                                         {module.difficulty}
                                     </Badge>
                                     <div className="flex items-center gap-2 text-slate-500">
-                                        <Clock className="w-4 h-4" />
-                                        <span className="text-xs font-bold">{module.time}</span>
+                                        <Clock className="w-3.5 h-3.5" />
+                                        <span className="text-[10px] font-bold uppercase">{module.time}</span>
                                     </div>
                                 </div>
-                                <CardTitle className="text-xl font-black text-[#020617] dark:text-white mb-2">{module.title}</CardTitle>
-                                <CardDescription className="text-slate-600 dark:text-slate-400 text-sm font-medium leading-relaxed">
+                                <CardTitle className="text-lg font-black text-[#020617] dark:text-white mb-1.5">{module.title}</CardTitle>
+                                <CardDescription className="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal line-clamp-2">
                                     {module.description}
                                 </CardDescription>
                             </CardHeader>
-                            <CardContent className="p-8 pt-0">
+                            <CardContent className="p-6 pt-0">
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-2 text-slate-500">
-                                        <FileText className="w-4 h-4" />
-                                        <span className="text-xs font-bold">{module.questions} Questions</span>
+                                        <FileText className="w-3.5 h-3.5" />
+                                        <span className="text-[10px] font-bold uppercase">{module.questions} Questions</span>
                                     </div>
-                                    <Button size="sm" className="rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold group-hover:scale-105 transition-transform">
-                                        Start <ArrowRight className="ml-2 w-4 h-4" />
+                                    <Button size="sm" className="h-9 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold group-hover:scale-105 transition-transform text-xs">
+                                        Start Test <ArrowRight className="ml-2 w-3.5 h-3.5" />
                                     </Button>
                                 </div>
                             </CardContent>
@@ -105,24 +102,24 @@ export default async function ReadingPracticePage() {
 
             {/* Sample Passage Preview */}
             <section>
-                <div className="grid lg:grid-cols-12 gap-12">
+                <div className="grid lg:grid-cols-12 gap-8">
                     <div className="lg:col-span-7">
                         <Card className="bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-white/10 backdrop-blur-3xl rounded-[2rem] overflow-hidden shadow-xl">
-                            <CardHeader className="p-8 border-b border-slate-200 dark:border-white/5">
+                            <CardHeader className="p-6 border-b border-slate-200 dark:border-white/5">
                                 <div className="flex items-center justify-between">
                                     <div>
                                         <Badge className="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-none rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-widest mb-3">
                                             Sample Passage
                                         </Badge>
-                                        <CardTitle className="text-2xl font-black text-[#020617] dark:text-white">The Evolution of Artificial Intelligence</CardTitle>
+                                        <CardTitle className="text-xl font-black text-[#020617] dark:text-white line-clamp-1">{passage.title}</CardTitle>
                                     </div>
-                                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-500/10">
-                                        <Clock className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                                        <span className="text-sm font-black text-indigo-600 dark:text-indigo-400">20:00</span>
+                                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-500/10 shrink-0">
+                                        <Clock className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+                                        <span className="text-xs font-black text-indigo-600 dark:text-indigo-400">20:00</span>
                                     </div>
                                 </div>
                             </CardHeader>
-                            <CardContent className="p-8">
+                            <CardContent className="p-6">
                                 <div className="prose prose-slate dark:prose-invert max-w-none">
                                     <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
                                         Artificial intelligence (AI) has undergone a remarkable transformation since its inception in the mid-20th century. What began as a theoretical concept discussed by mathematicians and philosophers has evolved into one of the most influential technologies of our time, reshaping industries, economies, and the very fabric of daily life.
@@ -216,3 +213,7 @@ const questionTypes = [
     { name: "Matching Headings", count: 4 },
     { name: "Summary Completion", count: 3 },
 ]
+
+const passage = {
+    title: "The Evolution of Artificial Intelligence",
+}

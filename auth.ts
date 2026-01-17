@@ -9,4 +9,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     pages: {
         signIn: '/login',
     },
+    callbacks: {
+        async redirect({ url, baseUrl }) {
+            // After sign in, redirect to dashboard
+            if (url.startsWith(baseUrl)) return `${baseUrl}/dashboard`
+            return baseUrl
+        },
+    },
 })
+

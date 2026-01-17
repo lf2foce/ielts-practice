@@ -1,7 +1,5 @@
 import { auth } from "@/auth"
-import { redirect } from "next/navigation"
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -31,21 +29,17 @@ import {
 export default async function DashboardPage() {
     const session = await auth()
 
-    if (!session?.user) {
-        redirect("/login")
-    }
-
     return (
-        <div className="flex flex-col min-h-screen pt-28 pb-20 bg-[#fcfdff] dark:bg-[#020617]">
+        <div className="flex flex-col p-8 bg-slate-50 dark:bg-[#020617] min-h-full">
             {/* Welcome Header */}
-            <section className="container mx-auto px-4 lg:px-12 mb-12">
+            <section className="mb-8">
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
                     <div>
                         <p className="text-sm font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-widest mb-2">Welcome back</p>
-                        <h1 className="text-4xl lg:text-5xl font-black tracking-tight text-[#020617] dark:text-white">
-                            {session.user.name?.split(' ')[0] || 'Student'} 👋
+                        <h1 className="text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
+                            {session?.user?.name?.split(' ')[0] || 'Student'} 👋
                         </h1>
-                        <p className="text-slate-500 font-bold mt-2">Ready to continue your IELTS journey?</p>
+                        <p className="text-slate-600 font-bold mt-2">Ready to continue your IELTS journey?</p>
                     </div>
                     <div className="flex items-center gap-4">
                         <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-500/10 border border-amber-500/20">
@@ -60,7 +54,7 @@ export default async function DashboardPage() {
             </section>
 
             {/* Quick Stats */}
-            <section className="container mx-auto px-4 lg:px-12 mb-12">
+            <section className="mb-8">
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                     {quickStats.map((stat, i) => (
                         <Card key={i} className="bg-white/70 dark:bg-slate-900/40 border-slate-200 dark:border-white/5 backdrop-blur-xl rounded-2xl">
@@ -79,7 +73,7 @@ export default async function DashboardPage() {
             </section>
 
             {/* Skills Practice Panel */}
-            <section className="container mx-auto px-4 lg:px-12 mb-12">
+            <section className="mb-8">
                 <div className="flex items-center justify-between mb-8">
                     <h2 className="text-2xl font-black text-[#020617] dark:text-white">Practice Skills</h2>
                     <Button variant="ghost" className="font-bold text-indigo-600 dark:text-indigo-400">
@@ -124,7 +118,7 @@ export default async function DashboardPage() {
             </section>
 
             {/* Performance Analysis & Recent Activity */}
-            <section className="container mx-auto px-4 lg:px-12">
+            <section>
                 <div className="grid lg:grid-cols-12 gap-8">
                     {/* Performance Chart */}
                     <div className="lg:col-span-7">

@@ -1,4 +1,3 @@
-import { auth } from "@/auth"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
@@ -24,15 +23,13 @@ import {
 } from "lucide-react"
 
 export default async function ReadingPracticePage() {
-    const session = await auth()
-
     return (
-        <div className="flex flex-col min-h-screen pt-28 pb-20 bg-[#fcfdff] dark:bg-[#020617]">
+        <div className="flex flex-col p-8 bg-slate-50 dark:bg-[#020617] min-h-full">
             {/* Page Header */}
-            <section className="container mx-auto px-4 lg:px-12 mb-16">
+            <section className="mb-8">
                 <div className="flex items-center gap-4 mb-8">
                     <Button variant="ghost" size="icon" className="h-10 w-10 rounded-xl border border-slate-200 dark:border-white/10" asChild>
-                        <Link href="/"><ArrowLeft className="w-5 h-5" /></Link>
+                        <Link href="/dashboard"><ArrowLeft className="w-5 h-5" /></Link>
                     </Button>
                     <Badge className="bg-indigo-600 dark:bg-indigo-500/10 text-white dark:text-indigo-400 border-none rounded-full px-5 py-1 text-xs font-black tracking-widest uppercase">
                         Analytical Node
@@ -50,7 +47,7 @@ export default async function ReadingPracticePage() {
             </section>
 
             {/* Practice Stats */}
-            <section className="container mx-auto px-4 lg:px-12 mb-16">
+            <section className="mb-8">
                 <div className="grid md:grid-cols-4 gap-6">
                     {stats.map((stat, i) => (
                         <Card key={i} className="bg-white/70 dark:bg-slate-900/40 border-slate-200 dark:border-white/5 backdrop-blur-xl rounded-2xl">
@@ -69,7 +66,7 @@ export default async function ReadingPracticePage() {
             </section>
 
             {/* Practice Modules */}
-            <section className="container mx-auto px-4 lg:px-12 mb-16">
+            <section className="mb-8">
                 <h2 className="text-3xl font-black text-[#020617] dark:text-white mb-8">Practice Modules</h2>
 
                 <div className="grid lg:grid-cols-3 gap-8">
@@ -107,7 +104,7 @@ export default async function ReadingPracticePage() {
             </section>
 
             {/* Sample Passage Preview */}
-            <section className="container mx-auto px-4 lg:px-12">
+            <section>
                 <div className="grid lg:grid-cols-12 gap-12">
                     <div className="lg:col-span-7">
                         <Card className="bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-white/10 backdrop-blur-3xl rounded-[2rem] overflow-hidden shadow-xl">

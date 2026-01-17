@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { UserNav } from "@/components/layout/user-nav";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
 
 const notoSans = Noto_Sans({ variable: '--font-sans' });
 
@@ -16,9 +18,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "IELTS V3",
-  description: "IELTS Practice Platform",
+  title: "IELTS V3 - AI-Powered Practice Platform",
+  description: "Advanced IELTS preparation with AI feedback for all 4 skills.",
 };
+
+import { ThemeProvider } from "@/components/theme-provider";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export default function RootLayout({
   children,
@@ -26,17 +31,46 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={notoSans.variable}>
+    <html lang="en" className={notoSans.variable} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-white dark:bg-[#020617] text-slate-900 dark:text-slate-200 transition-colors duration-300`}
       >
-        <header className="border-b">
-          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 className="text-xl font-bold">IELTS V3</h1>
-            <UserNav />
-          </div>
-        </header>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <header className="fixed top-6 left-1/2 -translate-x-1/2 z-[40] w-[95%] max-w-7xl">
+            <div className="px-6 py-4 rounded-[2rem] border border-slate-200/50 dark:border-white/10 bg-white/70 dark:bg-slate-900/60 backdrop-blur-3xl shadow-xl dark:shadow-2xl flex items-center justify-between transition-all duration-300">
+              <div className="flex items-center gap-12">
+                <Link href="/" className="flex items-center space-x-3 group">
+                  <div className="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center font-bold text-white text-[11px] group-hover:scale-110 transition-transform shadow-lg shadow-indigo-500/20">
+                    V3
+                  </div>
+                  <span className="text-xl font-bold tracking-tighter text-slate-900 dark:text-white">
+                    IELTS <span className="text-indigo-600">V3</span>
+                  </span>
+                  <Badge className="hidden sm:inline-flex text-[10px] font-bold px-2 py-0 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-500/20 rounded-full">
+                    NEURAL BETA
+                  </Badge>
+                </Link>
+                <nav className="hidden lg:flex items-center space-x-10 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                  <Link href="/solutions" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors tracking-wide">Solutions</Link>
+                  <Link href="/features" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors tracking-wide">Features</Link>
+                  <Link href="/pricing" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors tracking-wide">Pricing</Link>
+                </nav>
+              </div>
+              <div className="flex items-center space-x-4 sm:space-x-6">
+                <ModeToggle />
+                <UserNav />
+              </div>
+            </div>
+          </header>
+          <main className="flex-1">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

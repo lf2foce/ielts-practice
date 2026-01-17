@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -143,6 +144,19 @@ const questions: Question[] = [
     }
 ]
 
+// Mock data for Full Mock Test (40 questions total)
+const fullMockQuestions: Question[] = [
+    ...questions,
+    ...Array.from({ length: 30 }, (_, i) => ({
+        id: i + 11,
+        type: i % 3 === 0 ? "true-false-not-given" : i % 3 === 1 ? "multiple-choice" : "matching-paragraph" as const,
+        text: `Full Mock Question ${i + 11}: This is a sample question for the extended mock test environment.`,
+        options: i % 3 === 1 ? ["A) Option A", "B) Option B", "C) Option C", "D) Option D"] : i % 3 === 2 ? ["A", "B", "C", "D", "E"] : undefined,
+        correctAnswer: i % 3 === 1 ? "A" : i % 3 === 2 ? "A" : "TRUE",
+        explanation: `Explanation for full mock question ${i + 11}.`
+    }))
+]
+
 interface Question {
     id: number
     type: string
@@ -153,11 +167,18 @@ interface Question {
 }
 
 export default function ReadingTestPage() {
+    const searchParams = useSearchParams()
+    const mode = searchParams.get('mode')
+    const isFullMock = mode === 'full'
+
+    const activeQuestions = isFullMock ? fullMockQuestions : questions
+    const initialTime = isFullMock ? 60 * 60 : 20 * 60
+
     const [answers, setAnswers] = useState<Record<number, string>>({})
     const [flagged, setFlagged] = useState<Record<number, boolean>>({})
     const [submitted, setSubmitted] = useState(false)
     const [score, setScore] = useState(0)
-    const [timeLeft, setTimeLeft] = useState(20 * 60) // 20 minutes in seconds
+    const [timeLeft, setTimeLeft] = useState(initialTime)
 
     const scrollToQuestion = (id: number) => {
         const element = document.getElementById(`question-${id}`)
@@ -197,9 +218,16 @@ export default function ReadingTestPage() {
         setAnswers(prev => ({ ...prev, [questionId]: answer }))
     }
 
+    const getAnswerStatus = (questionId: number) => {
+        if (!submitted) return null
+        const question = (activeQuestions as Question[]).find((q: Question) => q.id === questionId)
+        if (!question) return null
+        return answers[questionId] === question.correctAnswer ? 'correct' : 'incorrect'
+    }
+
     const handleSubmit = () => {
         let correct = 0
-        questions.forEach(q => {
+        activeQuestions.forEach((q: Question) => {
             if (answers[q.id] === q.correctAnswer) {
                 correct++
             }
@@ -210,16 +238,10 @@ export default function ReadingTestPage() {
 
     const handleReset = () => {
         setAnswers({})
+        setFlagged({})
         setSubmitted(false)
         setScore(0)
-        setTimeLeft(20 * 60)
-    }
-
-    const getAnswerStatus = (questionId: number) => {
-        if (!submitted) return null
-        const question = questions.find(q => q.id === questionId)
-        if (!question) return null
-        return answers[questionId] === question.correctAnswer ? 'correct' : 'incorrect'
+        setTimeLeft(initialTime)
     }
 
     return (
@@ -231,8 +253,12 @@ export default function ReadingTestPage() {
                         <Link href="/practice/reading"><ArrowLeft className="w-5 h-5" /></Link>
                     </Button>
                     <div>
-                        <h1 className="text-lg font-black text-slate-900 dark:text-white leading-tight">Reading Test 1</h1>
-                        <p className="text-xs text-slate-500 font-bold tracking-tight">The Evolution of AI</p>
+                        <h1 className="text-lg font-black text-slate-900 dark:text-white leading-tight">
+                            {isFullMock ? 'Full Mock Test: Volume 1' : 'Reading Test 1'}
+                        </h1>
+                        <p className="text-xs text-slate-500 font-bold tracking-tight">
+                            {isFullMock ? '3 Passages • 40 Questions' : 'The Evolution of AI'}
+                        </p>
                     </div>
                 </div>
 
@@ -269,16 +295,42 @@ export default function ReadingTestPage() {
                             <CardTitle className="text-xl font-black text-[#020617] dark:text-white leading-tight">{passage.title}</CardTitle>
                         </CardHeader>
                         <CardContent className="p-5">
-                            {passage.paragraphs.map((para, i) => (
-                                <div key={i} className="mb-6 last:mb-0 flex gap-4">
-                                    <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-black text-xs flex items-center justify-center border border-indigo-100 dark:border-indigo-500/20 shadow-sm">
-                                        {para.id}
-                                    </span>
-                                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-medium text-sm pt-1">
-                                        {para.content}
-                                    </p>
+                            {isFullMock ? (
+                                <div className="space-y-12">
+                                    <div>
+                                        <Badge variant="outline" className="mb-4 text-[10px] font-black uppercase text-indigo-600 dark:text-indigo-400">Passage 1: Artificial Intelligence</Badge>
+                                        {passage.paragraphs.map((para, i) => (
+                                            <div key={i} className="mb-6 last:mb-0 flex gap-4">
+                                                <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-black text-xs flex items-center justify-center border border-indigo-100 dark:border-indigo-500/20 shadow-sm">
+                                                    {para.id}
+                                                </span>
+                                                <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-medium text-sm pt-1">
+                                                    {para.content}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="pt-8 border-t border-slate-200 dark:border-white/5">
+                                        <Badge variant="outline" className="mb-4 text-[10px] font-black uppercase text-indigo-600 dark:text-indigo-400">Passage 2: The Future of Robotics</Badge>
+                                        <p className="text-slate-600 dark:text-slate-400 italic text-sm">Passage content for technical mock-up demonstration...</p>
+                                    </div>
+                                    <div className="pt-8 border-t border-slate-200 dark:border-white/5">
+                                        <Badge variant="outline" className="mb-4 text-[10px] font-black uppercase text-indigo-600 dark:text-indigo-400">Passage 3: Ethics in the Digital Age</Badge>
+                                        <p className="text-slate-600 dark:text-slate-400 italic text-sm">Passage content for technical mock-up demonstration...</p>
+                                    </div>
                                 </div>
-                            ))}
+                            ) : (
+                                passage.paragraphs.map((para, i) => (
+                                    <div key={i} className="mb-6 last:mb-0 flex gap-4">
+                                        <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-black text-xs flex items-center justify-center border border-indigo-100 dark:border-indigo-500/20 shadow-sm">
+                                            {para.id}
+                                        </span>
+                                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-medium text-sm pt-1">
+                                            {para.content}
+                                        </p>
+                                    </div>
+                                ))
+                            )}
                         </CardContent>
                     </Card>
                 </div>
@@ -292,7 +344,7 @@ export default function ReadingTestPage() {
                         <h3 className="text-lg font-black text-[#020617] dark:text-white mb-4">Questions 1-5: True / False / Not Given</h3>
                         <p className="text-sm text-slate-500 font-bold mb-6">Do the following statements agree with the information given in the passage?</p>
 
-                        {questions.filter(q => q.type === 'true-false-not-given').map(q => (
+                        {activeQuestions.filter((q: Question) => q.type === 'true-false-not-given').map((q: Question) => (
                             <Card key={q.id} id={`question-${q.id}`} className={`mb-4 bg-white/70 dark:bg-slate-900/40 border-slate-200 dark:border-white/5 backdrop-blur-xl rounded-2xl overflow-hidden transition-all ${getAnswerStatus(q.id) === 'correct' ? 'ring-2 ring-emerald-500' : getAnswerStatus(q.id) === 'incorrect' ? 'ring-2 ring-red-500' : ''}`}>
                                 <CardContent className="p-4">
                                     <div className="flex items-start justify-between mb-4">
@@ -351,7 +403,7 @@ export default function ReadingTestPage() {
                         <h3 className="text-lg font-black text-[#020617] dark:text-white mb-4">Questions 6-8: Multiple Choice</h3>
                         <p className="text-sm text-slate-500 font-bold mb-6">Choose the correct letter, A, B, C or D.</p>
 
-                        {questions.filter(q => q.type === 'multiple-choice').map(q => (
+                        {activeQuestions.filter((q: Question) => q.type === 'multiple-choice').map((q: Question) => (
                             <Card key={q.id} id={`question-${q.id}`} className={`mb-4 bg-white/70 dark:bg-slate-900/40 border-slate-200 dark:border-white/5 backdrop-blur-xl rounded-2xl overflow-hidden transition-all ${getAnswerStatus(q.id) === 'correct' ? 'ring-2 ring-emerald-500' : getAnswerStatus(q.id) === 'incorrect' ? 'ring-2 ring-red-500' : ''}`}>
                                 <CardContent className="p-4">
                                     <div className="flex items-start justify-between mb-4">
@@ -410,7 +462,7 @@ export default function ReadingTestPage() {
                         <h3 className="text-lg font-black text-[#020617] dark:text-white mb-4">Questions 9-10: Matching Information</h3>
                         <p className="text-sm text-slate-500 font-bold mb-6">Which paragraph contains the following information?</p>
 
-                        {questions.filter(q => q.type === 'matching-paragraph').map(q => (
+                        {activeQuestions.filter((q: Question) => q.type === 'matching-paragraph').map((q: Question) => (
                             <Card key={q.id} id={`question-${q.id}`} className={`mb-4 bg-white/70 dark:bg-slate-900/40 border-slate-200 dark:border-white/5 backdrop-blur-xl rounded-2xl overflow-hidden transition-all ${getAnswerStatus(q.id) === 'correct' ? 'ring-2 ring-emerald-500' : getAnswerStatus(q.id) === 'incorrect' ? 'ring-2 ring-red-500' : ''}`}>
                                 <CardContent className="p-4">
                                     <div className="flex items-start justify-between mb-4">
@@ -483,11 +535,11 @@ export default function ReadingTestPage() {
                                 <div className="h-1.5 w-32 bg-slate-100 dark:bg-white/5 rounded-full overflow-hidden">
                                     <div
                                         className="h-full bg-indigo-600 transition-all duration-300"
-                                        style={{ width: `${(Object.keys(answers).length / questions.length) * 100}%` }}
+                                        style={{ width: `${(Object.keys(answers).length / activeQuestions.length) * 100}%` }}
                                     />
                                 </div>
                                 <span className="text-xs font-black text-indigo-600 dark:text-indigo-400">
-                                    {Math.round((Object.keys(answers).length / questions.length) * 100)}%
+                                    {Math.round((Object.keys(answers).length / activeQuestions.length) * 100)}%
                                 </span>
                             </div>
                         </div>
@@ -495,13 +547,13 @@ export default function ReadingTestPage() {
 
                     <div className="flex-1 max-w-2xl overflow-x-auto pb-1 scrollbar-hide">
                         <div className="flex items-center gap-2 px-2">
-                            {questions.map(q => (
+                            {activeQuestions.map((q: Question) => (
                                 <button
                                     key={q.id}
                                     onClick={() => scrollToQuestion(q.id)}
                                     className={`relative flex-shrink-0 w-10 h-10 rounded-xl font-black text-sm transition-all duration-200 ${answers[q.id]
-                                            ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-md scale-105'
-                                            : 'bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-white/10'
+                                        ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-md scale-105'
+                                        : 'bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-white/10'
                                         }`}
                                 >
                                     {q.id}
@@ -522,7 +574,7 @@ export default function ReadingTestPage() {
                         {submitted ? (
                             <div className="flex flex-col items-end">
                                 <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Final Score</span>
-                                <span className="text-lg font-black text-emerald-600 dark:text-emerald-400">{score}/{questions.length}</span>
+                                <span className="text-lg font-black text-emerald-600 dark:text-emerald-400">{score}/{activeQuestions.length}</span>
                             </div>
                         ) : (
                             <Button onClick={handleSubmit} className="h-11 px-6 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-black text-sm shadow-lg shadow-indigo-500/20">

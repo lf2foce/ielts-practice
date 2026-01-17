@@ -19,28 +19,59 @@ import {
     Layers,
     FileText,
     Brain,
-    Zap
+    Zap,
+    Trophy
 } from "lucide-react"
 
 export default async function ReadingPracticePage() {
     return (
         <div className="flex flex-col p-6 bg-slate-50 dark:bg-[#020617] min-h-full">
-            {/* Page Header */}
-            <section className="mb-6">
-                <div className="flex items-center gap-4 mb-6">
-                    <Button variant="ghost" size="icon" className="h-10 w-10 rounded-xl border border-slate-200 dark:border-white/10" asChild>
-                        <Link href="/dashboard"><ArrowLeft className="w-5 h-5" /></Link>
-                    </Button>
-                </div>
-
-                <div className="max-w-4xl">
-                    <h1 className="text-5xl lg:text-6xl font-black tracking-tight text-[#020617] dark:text-white mb-4">
-                        Reading <span className="text-indigo-600 dark:text-indigo-400">Practice</span>
-                    </h1>
-                    <p className="text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
-                        Improve your IELTS Reading band with our collection of academic passages and interactive exercises.
-                    </p>
-                </div>
+            {/* Full Mock Test Hero */}
+            <section className="mb-12">
+                <Card className="relative overflow-hidden border-none bg-slate-900 dark:bg-indigo-600/10 rounded-[2.5rem] shadow-2xl shadow-indigo-500/20 group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 via-transparent to-transparent pointer-events-none" />
+                    <div className="relative p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-12">
+                        <div className="flex-1 text-center lg:text-left">
+                            <Badge className="bg-indigo-500/20 text-indigo-400 border-none rounded-full px-4 py-1.5 text-xs font-black uppercase tracking-widest mb-6">
+                                Professional Mock Exam
+                            </Badge>
+                            <h2 className="text-4xl lg:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
+                                Take a <span className="text-indigo-400 italic">Full Mock</span> Test
+                            </h2>
+                            <p className="text-indigo-100/70 text-lg font-medium leading-relaxed mb-8 max-w-xl">
+                                Simulate the real IELTS environment with 3 academic passages, 40 questions, and a strict 60-minute time limit.
+                            </p>
+                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 mb-8 text-white/60">
+                                <div className="flex items-center gap-2">
+                                    <Clock className="w-4 h-4 text-indigo-400" />
+                                    <span className="text-sm font-bold uppercase tracking-tight">60 Minutes</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <Layers className="w-4 h-4 text-indigo-400" />
+                                    <span className="text-sm font-bold uppercase tracking-tight">3 Passages</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <FileText className="w-4 h-4 text-indigo-400" />
+                                    <span className="text-sm font-bold uppercase tracking-tight">40 Questions</span>
+                                </div>
+                            </div>
+                            <Button size="lg" className="h-16 px-10 rounded-2xl bg-white text-slate-900 hover:bg-slate-100 font-black text-lg shadow-xl shadow-white/10 group-hover:scale-105 transition-transform" asChild>
+                                <Link href="/practice/reading/test/1?mode=full">
+                                    Start Full Mock <Zap className="ml-3 w-5 h-5 fill-current" />
+                                </Link>
+                            </Button>
+                        </div>
+                        <div className="hidden lg:flex flex-1 justify-end">
+                            <div className="relative">
+                                <div className="absolute -inset-4 bg-indigo-500/20 rounded-full blur-3xl" />
+                                <div className="relative h-64 w-64 rounded-[3rem] bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 flex items-center justify-center shadow-inner overflow-hidden">
+                                    <Trophy className="w-32 h-32 text-indigo-500/30 absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4" />
+                                    <Brain className="w-24 h-24 text-indigo-400 group-hover:scale-110 transition-transform duration-500" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Card>
             </section>
 
             {/* Practice Stats */}
@@ -90,8 +121,10 @@ export default async function ReadingPracticePage() {
                                         <FileText className="w-3.5 h-3.5" />
                                         <span className="text-[10px] font-bold uppercase">{module.questions} Questions</span>
                                     </div>
-                                    <Button size="sm" className="h-9 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold group-hover:scale-105 transition-transform text-xs">
-                                        Start Test <ArrowRight className="ml-2 w-3.5 h-3.5" />
+                                    <Button size="sm" className="h-9 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold group-hover:scale-105 transition-transform text-xs" asChild>
+                                        <Link href={`/practice/reading/test/1${module.mode ? `?mode=${module.mode}` : ''}`}>
+                                            Start Test <ArrowRight className="ml-2 w-3.5 h-3.5" />
+                                        </Link>
                                     </Button>
                                 </div>
                             </CardContent>
@@ -185,6 +218,14 @@ const stats = [
 
 const modules = [
     {
+        title: "Full Mock Test: Vol. 1",
+        description: "Official-style mock test with varied academic topics and standard 40-question set.",
+        difficulty: "Hard",
+        time: "60 min",
+        questions: 40,
+        mode: "full",
+    },
+    {
         title: "Academic Passage: Science",
         description: "Explore scientific discoveries and research methodologies through academic texts.",
         difficulty: "Medium",
@@ -197,13 +238,6 @@ const modules = [
         difficulty: "Hard",
         time: "20 min",
         questions: 14,
-    },
-    {
-        title: "Academic Passage: Technology",
-        description: "Understand technological advancements and their implications.",
-        difficulty: "Easy",
-        time: "20 min",
-        questions: 13,
     },
 ]
 

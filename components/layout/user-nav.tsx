@@ -35,8 +35,8 @@ export async function UserNav() {
             <DropdownMenuContent className="w-64 mt-2 bg-white/90 dark:bg-slate-900/90 border-slate-200 dark:border-white/10 backdrop-blur-2xl rounded-[1.5rem] p-2 shadow-2xl" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal p-4">
                     <div className="flex flex-col space-y-1">
-                        <p className="text-sm font-bold text-slate-900 dark:text-white leading-none">{session.user.name}</p>
-                        <p className="text-xs font-medium leading-none text-slate-500 dark:text-slate-400">
+                        <p className="text-sm font-black text-[#020617] dark:text-white leading-none">{session.user.name}</p>
+                        <p className="text-xs font-bold leading-none text-slate-500 dark:text-slate-400">
                             {session.user.email}
                         </p>
                     </div>
